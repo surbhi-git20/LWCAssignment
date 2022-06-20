@@ -1,10 +1,13 @@
 <template>
     <lightning-card>
+        <template if:true={displaySpinner}>
+            <lightning-spinner alternative-text="Loading" variant="brand" size="medium"></lightning-spinner>
+        </template>
         <template if:true={prodList}>
-            <lightning-datatable data={prodList} columns={columns} key-field="Id" >
+            <lightning-datatable data={prodList} columns={columns} key-field="Id">
             </lightning-datatable>
             <footer class="slds-modal__footer">
-                <lightning-button label="Add to Order" onclick={handleclick} variant="Brand" class="slds-align_absolute-center" ></lightning-button>
+                <lightning-button label="Add to Order" onclick={handleclick} disabled={disableButton} variant="Brand" class="slds-align_absolute-center" ></lightning-button>
             </footer>
         </template>
         <template if:true={error}>
