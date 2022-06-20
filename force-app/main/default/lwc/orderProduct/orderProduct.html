@@ -1,0 +1,15 @@
+<template>
+    <lightning-card >
+        <template if:true={orderprodList}>
+            <lightning-datatable data={orderprodList} columns={columns} key-field="Id" hide-checkbox-column="true">
+            </lightning-datatable>
+            <footer class="slds-modal__footer">
+                <lightning-button label="Activate" onclick={handleclick} variant="Brand" class="slds-align_absolute-center" ></lightning-button>
+            </footer>
+        </template>
+        <template if:true={error}>
+            {error}
+        </template>
+
+    </lightning-card>
+</template>
